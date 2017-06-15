@@ -1,0 +1,115 @@
+<div id="LeaderCockpit">
+    <h1 id="title">配置页面</h1>
+
+
+    <div id="container">
+        <div class="buttonContainer">
+            <button type="button" v-on:click="addTheme">新建主题</button>
+            <button type="button" v-on:click="getThemeList">查找主题</button>
+            <button type="button" @click="updateTheme">更新主题</button>
+            <button type="button" @click="deleteTheme">删除主题</button>
+        </div>
+        <div>
+            <p>主题</p>
+            <form style="display: flex;justify-content: flex-end; margin-right: 20px; margin-bottom: 10px">
+                <input type="text" value="搜索主题">
+                <button style="display: flex; margin-left: 8px">搜索</button>
+            </form>
+            <div class="listBox">
+                <ul  v-for="item in reportList">
+                    {{item.name}}
+                </ul>
+            </div>
+        </div>
+        <div>
+            <p>报表</p>
+            <form style="display: flex;justify-content: flex-end; margin-right: 20px; margin-bottom: 10px">
+                <input type="text" value="搜索报表">
+                <button style="display: flex; margin-left: 8px">搜索</button>
+            </form>
+            <div class="listBox">
+                <ul  v-for="item in reportList">
+                    {{item.name}}
+                </ul>
+            </div>
+        </div>
+        <div class="buttonContainer" style="border: none">
+            <button type="button" >绑定>>></button>
+            <button type="button" >解绑<<<</button>
+        </div>
+
+        <div>
+            <p>绑定关系</p>
+            <form style="display: flex;justify-content: flex-end; margin-right: 20px; margin-bottom: 10px">
+                <label ><em style="font-size: smaller">建议不要设置太复杂的绑定关系</em></label>
+            </form>
+            <div class="listBox">
+                <ol v-for="item in reportList">
+                    {{item.name}}
+                </ol>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <button type="button" v-on:click="addReport">新建报表</button>
+            <button type="button" v-on:click="getReportList">查询报表</button>
+            <button type="button" @click="updateReport">修改报表</button>
+            <button type="button" @click="deleteReport">删除报表</button>
+        </div>
+    </div>
+    <div style="display: flex;justify-content: flex-end; margin-right: 20px; margin-top: 10px">
+        <button style="display: flex; margin-left: 8px">保存</button>
+        <button style="display: flex; margin-left: 8px">取消</button>
+        <button style="display: flex; margin-left: 8px">预览</button>
+        <button style="display: flex; margin-left: 8px">退出</button>
+    </div>
+</div>
+<style type="text/css">
+    #LeaderCockpit {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #title {
+        text-align: center;
+        background-color: antiquewhite;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: azure;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .buttonTheme{
+        display: flex;
+        flex-direction: column;
+        /*height: 300px;*/
+        width: 100px;
+        border: 1px dashed;
+        /*border-style: dashed;*/
+        justify-content: space-around;
+    }
+    .buttonContainer{
+        display: flex;
+        flex-direction: column;
+        /*height: 300px;*/
+        width: 100px;
+        border: 1px solid ;
+        /*align-items: center;*/
+        justify-content: space-around;
+    }
+    .listBox{
+        height: 400px;
+        width: 200px;
+        align-items: flex-end;
+        margin-bottom: 6px;
+        border: solid 1px;
+        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+</style>

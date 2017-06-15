@@ -1,0 +1,7 @@
+{
+	"project":"LeaderCockpit",
+	"version":"0.0.1",
+	"desc":"领导驾驶舱",
+	"type":"light-1.0",
+	"plugins":["vue","less"]
+}
