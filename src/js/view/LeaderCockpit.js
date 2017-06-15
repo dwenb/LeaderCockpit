@@ -18,6 +18,7 @@
         },
         watch: {
             reportList: function () {
+                var that = this;
                 var listBoxData= document.getElementsByClassName("listBox");
                 var themeListBox=listBoxData[0].childNodes;
                 var reportListBox=listBoxData[1].childNodes;
@@ -28,8 +29,23 @@
                     (function (i) {
                         //noinspection JSAnnotator
                         reportListBox[i].onclick=function () {
-                            reportListBox[i].style.backgroundColor="red";
-                            this.reportChoosed.push(i-1);
+                            var flag=jQuery.inArray(i-1,that.reportChoosed)
+                            if(flag==-1){
+                                reportListBox[i].style.backgroundColor="red";
+                                that.reportChoosed.push(i-1);
+                                console.log(that.reportChoosed)
+                            }else {
+                                reportListBox[i].style.backgroundColor="white";
+                                for(var j=0;j<that.reportChoosed.length;j++){
+                                    if(i-1==that.reportChoosed[j]){
+                                        // console.log("hello "+j-1);  //非数字的字符串减数字为NaN
+                                        that.reportChoosed.splice(j,1);
+                                        break;
+                                    }
+                                }
+                                console.log(that.reportChoosed);
+                            }
+
                         }
                     })(i)
                 }
