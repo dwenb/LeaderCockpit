@@ -2,7 +2,7 @@
     win.API = {
         fetchURL: function (url, opts) {
             console.log(url)
-            return fetch("../../data.json");
+           return fetch("../../data.json")
            // return fetch("https://www.baidu.com",opts);
         }
     };
